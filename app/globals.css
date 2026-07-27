@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+/*
+ * Single dark theme, ported from the Claude Design mock-up.
+ * The site is dark-only by design; there is no light variant / theme toggle.
+ */
+:root {
+  --background: #070d1f;
+  --foreground: #e8eef7;
+  --surface: #0c1326;
+  --border: rgba(255, 255, 255, 0.06);
+  --rule: rgba(255, 255, 255, 0.09);
+  --muted-foreground: #8695ab;
+  --muted-dim: #63728a;
+  --faint: #3f4c5f;
+  --accent: #66d9c4;
+  --accent-hover: #8ee9d9;
+  --accent-light: #9fe6d8;
+  --accent-foreground: #052e2b;
+  --accent-tint: rgba(102, 217, 196, 0.06); /* card hover wash */
+  --accent-chip: rgba(102, 217, 196, 0.09); /* pill background */
+  --accent-chip2: rgba(102, 217, 196, 0.08); /* smaller tag background */
+  --accent-chip-border: rgba(102, 217, 196, 0.18);
+  --skill-item: #cdd6e4;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-rule: var(--rule);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted-dim: var(--muted-dim);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-light: var(--accent-light);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-tint: var(--accent-tint);
+  --color-accent-chip: var(--accent-chip);
+  --color-accent-chip2: var(--accent-chip2);
+  --color-accent-chip-border: var(--accent-chip-border);
+  --color-skill-item: var(--skill-item);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-jetbrains);
+}
+
+/* Kill any sideways scroll from the oversized fixed cursor glow. `clip` (not
+   `hidden`) does not create a scroll container, so sticky positioning still works. */
+html {
+  overflow-x: clip;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--accent-hover);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Experience list: hovering one card dims its siblings. */
+  .exp-dim:hover .exp-card {
+    opacity: 0.4;
+  }
+  .exp-dim .exp-card:hover {
+    opacity: 1;
+  }
+  .exp-card {
+    transition:
+      opacity 0.25s ease,
+      transform 0.22s ease,
+      background 0.22s ease;
+  }
+}
