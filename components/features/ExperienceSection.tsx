@@ -9,7 +9,7 @@ export function ExperienceSection() {
         {experienceList.map((job, index) => (
           <article
             key={`${job.company}-${index}`}
-            className="exp-card rounded-[14px] px-6 py-7 hover:-translate-y-1 hover:bg-accent-tint motion-reduce:hover:translate-y-0 sm:px-[30px]"
+            className="card exp-card rounded-[14px] px-5 py-6 hover:-translate-y-1 hover:bg-accent-tint motion-reduce:hover:translate-y-0 sm:px-[30px] sm:py-7"
           >
             <div className="flex flex-wrap items-baseline justify-between gap-4">
               <h3 className="text-[18.5px] font-bold text-foreground">

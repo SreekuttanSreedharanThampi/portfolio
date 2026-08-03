@@ -10,7 +10,7 @@ export const educationList: EducationEntry[] = [
     institution: "Hochschule Darmstadt (University of Applied Sciences Darmstadt), Germany",
     degree: "MSc, Electrical & Information Technology",
     detail: "Specialisation: Embedded Systems and Microelectronics · Grade: 1.8",
-    dateRange: "2023 - present",
+    dateRange: "2023 - 2025",
   },
   {
     institution: "Government Engineering College Kozhikode, India",

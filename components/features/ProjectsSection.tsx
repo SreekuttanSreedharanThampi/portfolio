@@ -1,8 +1,9 @@
+import { AcademicProjects } from "@/components/features/AcademicProjects";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { featuredProjects } from "@/content/featured";
 
 const cardClass =
-  "rounded-[14px] px-6 py-8 transition-[transform,background] duration-200 hover:-translate-y-1 hover:bg-accent-tint motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:px-[34px]";
+  "card rounded-[14px] px-5 py-7 transition-[transform,background] duration-200 hover:-translate-y-1 hover:bg-accent-tint motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:px-[34px] sm:py-8";
 
 function StackChips({ items }: { items: readonly string[] }) {
   return (
@@ -33,17 +34,28 @@ export function ProjectsSection() {
               {project.desc}
             </p>
             <StackChips items={project.stack} />
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center gap-1.5 font-mono text-[13.5px] text-accent transition-colors hover:text-accent-hover motion-reduce:transition-none"
-            >
-              Visit site ↗
-            </a>
+            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2">
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-mono text-[13.5px] text-accent transition-colors hover:text-accent-hover active:text-accent-hover motion-reduce:transition-none"
+              >
+                Visit site ↗
+              </a>
+              {project.access ? (
+                <p className="font-mono text-[13px] text-muted-dim">
+                  {project.access.label}:{" "}
+                  <span className="rounded-md bg-accent-chip2 px-2 py-1 text-accent-light">
+                    {project.access.value}
+                  </span>
+                </p>
+              ) : null}
+            </div>
           </article>
         ))}
       </div>
+      <AcademicProjects />
     </section>
   );
 }

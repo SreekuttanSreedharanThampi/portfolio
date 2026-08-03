@@ -19,7 +19,7 @@ export function ContactSection() {
       </p>
       <a
         href={`mailto:${site.email}`}
-        className="inline-block rounded-lg border border-accent px-8 py-4 font-mono text-[15px] text-accent transition-colors hover:bg-accent-chip motion-reduce:transition-none"
+        className="inline-block rounded-lg border border-accent px-8 py-4 font-mono text-[15px] text-accent transition-colors hover:bg-accent-chip active:bg-accent-chip motion-reduce:transition-none"
       >
         Say hello
       </a>

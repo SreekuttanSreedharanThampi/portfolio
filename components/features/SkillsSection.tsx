@@ -9,7 +9,7 @@ export function SkillsSection() {
         {skillGroups.map((group) => (
           <div
             key={group.label}
-            className="rounded-[14px] px-5 py-6 transition-[transform,background] duration-200 hover:-translate-y-1 hover:bg-accent-tint motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+            className="card rounded-[14px] px-5 py-6 transition-[transform,background] duration-200 hover:-translate-y-1 hover:bg-accent-tint motion-reduce:transition-none motion-reduce:hover:translate-y-0"
           >
             <p className="mb-4 font-mono text-[12.5px] uppercase tracking-[0.06em] text-accent">
               {group.label}

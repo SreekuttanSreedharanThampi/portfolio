@@ -66,17 +66,43 @@ a:hover {
   color: var(--accent-hover);
 }
 
+/*
+ * Card surfaces.
+ *
+ * On pointer devices a card is invisible until you hover it — that reveal *is*
+ * the design. Tailwind v4 compiles `hover:` inside `@media (hover: hover)`, so
+ * on a touch screen those styles never apply and the cards collapse into
+ * undifferentiated text. Give them a resting surface there instead: same card,
+ * different trigger. `:active` covers the tap, standing in for hover.
+ */
+@layer components {
+  @media (hover: none) {
+    .card {
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .card:active {
+      border-color: var(--accent-chip-border);
+      background: var(--accent-tint);
+    }
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
   }
 
-  /* Experience list: hovering one card dims its siblings. */
-  .exp-dim:hover .exp-card {
-    opacity: 0.4;
-  }
-  .exp-dim .exp-card:hover {
-    opacity: 1;
+  /* Experience list: hovering one card dims its siblings. Gated on a real
+     pointer — touch browsers latch `:hover` on the last tapped element, which
+     would leave the other cards dimmed until you tap elsewhere. */
+  @media (hover: hover) {
+    .exp-dim:hover .exp-card {
+      opacity: 0.4;
+    }
+    .exp-dim .exp-card:hover {
+      opacity: 1;
+    }
   }
   .exp-card {
     transition:

@@ -8,6 +8,8 @@ export type FeaturedProject = {
   url: string;
   desc: string;
   stack: string[];
+  /** Optional access hint shown beside the link, e.g. a demo PIN for gated apps. */
+  access?: { label: string; value: string };
 };
 
 export const featuredProjects: FeaturedProject[] = [
@@ -18,5 +20,6 @@ export const featuredProjects: FeaturedProject[] = [
     url: "https://allmand-cricket.web.app/",
     desc: "A real-time cricket scoring web app for tracking innings, overs, wickets and player statistics ball-by-ball. Built with Next.js, it covers match setup, live scoreboard updates and a clean, mobile-friendly interface for scoring games on the go.",
     stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    access: { label: "Demo PIN", value: "2122" },
   },
 ];

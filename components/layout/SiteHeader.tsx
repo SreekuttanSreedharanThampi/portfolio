@@ -1,15 +1,7 @@
 import Link from "next/link";
+import { MobileNav } from "@/components/layout/MobileNav";
+import { navItems } from "@/content/nav";
 import { site } from "@/content/site";
-
-// Anchor targets point at the home page (/#…) so the nav also works from
-// the case-study routes, not just the one-pager itself.
-const navItems = [
-  { label: "About", href: "/#about" },
-  { label: "Experience", href: "/#experience" },
-  { label: "Projects", href: "/#projects" },
-  { label: "Skills", href: "/#skills" },
-  { label: "Contact", href: "/#contact" },
-];
 
 export function SiteHeader() {
   return (
@@ -18,8 +10,10 @@ export function SiteHeader() {
         <Link href="/" className="font-mono text-[15px] font-semibold text-foreground">
           SST
         </Link>
-        <div className="flex items-center gap-4 sm:gap-6">
-          <div className="hidden items-center gap-6 sm:flex">
+        <div className="flex items-center gap-3 md:gap-6">
+          {/* Six links stop fitting below `md`, so the inline nav starts there
+              and MobileNav covers everything narrower. */}
+          <div className="hidden items-center gap-5 md:flex">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -33,10 +27,11 @@ export function SiteHeader() {
           <a
             href={site.resumeHref}
             download
-            className="rounded-[7px] border border-accent px-4 py-2 font-mono text-[13px] text-accent transition-colors hover:bg-accent-chip motion-reduce:transition-none"
+            className="rounded-[7px] border border-accent px-3.5 py-2 font-mono text-[13px] text-accent transition-colors hover:bg-accent-chip active:bg-accent-chip motion-reduce:transition-none md:px-4"
           >
             Resume ↓
           </a>
+          <MobileNav />
         </div>
       </nav>
     </header>
