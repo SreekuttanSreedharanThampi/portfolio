@@ -8,6 +8,8 @@ export const site = {
   // Used for <meta description> and social cards.
   subline:
     "Building distributed backend systems in Go, with credible full-stack range across React and Angular. Currently building the backend of a multi-tenant, cloud-native platform behind a fleet-management application.",
+  // Canonical production URL; base for absolute links in metadata.
+  url: "https://thampi.de",
   location: "Stuttgart, Germany",
   email: "sreekuttan3196@gmail.com",
   phone: "+49 15730170349",

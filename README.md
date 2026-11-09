@@ -2,7 +2,7 @@
 
 Personal portfolio and CV site for a backend engineer working in Go and cloud-native systems. A single, dark-themed page covering background, experience, projects and skills, prerendered to static HTML at build time.
 
-**Live site:** [portfolio-sreekuttan.vercel.app](https://portfolio-sreekuttan.vercel.app/)
+**Live site:** [thampi.de](https://thampi.de/)
 
 ## Overview
 
